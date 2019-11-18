@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Hello World</title>
+</head>
+<body>
+    <div id="application-root"></div>
+
+    <script
+        src="https://unpkg.com/react@16/umd/react.development.js">
+    </script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js">
+    </script>
+    <script
+        src="https://unpkg.com/babel-standalone@6/babel.min.js">
+    </script>
+    <script type='text/babel'>
+        const appRoot = document.querySelector('#application-root');
+        const helloWorldH1 = React.createElement('h1',null,'hello world');
+        const hello = <h1>hello world</h1>;
+        ReactDOM.render(hello,appRoot);
+
+        function App(props){
+            console.log(props);
+            return <section className={props.className}>{props.children}</section>;
+        }
+
+        function RenderContact(props){
+            return  <React.Fragment>
+                        <h2>Contact Info</h2>
+                        <img src="SallyStudent.png" alt="headshot"/>
+                        <p>{props.name}</p>
+                        <a href='www.google.com'>email</a>
+                        <p>phone:(123)456-7890</p>
+                    </React.Fragment>;
+        }
+
+        function RenderEducation(){
+            return  <React.Fragment>        
+                        <h2>Education</h2>
+                        <ul>
+                            <li> 
+                                <h3>Clown college</h3>
+                                <p>Graduated with an M.A. in clown car mechanics</p>
+                            </li>
+                        </ul>
+                    </React.Fragment>
+        }
+
+        function RenderEmployment(){
+            return  <React.Fragment>
+                        <h2>Employment</h2>
+                        <ul>
+                            <li>
+                                <h3>Mcdonalds</h3>
+                                <h4>Resident Clown</h4>
+                                <p>04/2014-02/2016</p><p>worked for 2 years as ronald mcdonald</p>
+                            </li>
+                            <li>
+                                <h3>Hollywood</h3>
+                                <h4>Scary Clown</h4>
+                                <p>03/2016-08/2016</p><p>Worked as Pennywises stunt double</p>
+                            </li>
+                        </ul>
+                    </React.Fragment>
+        }
+        ReactDOM.render(<App className='Contact'><RenderContact name="Salty Student" /><RenderEducation /><RenderEmployment /></App>,appRoot);
+    </script>
+</body>
+</html>
